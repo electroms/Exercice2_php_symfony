@@ -7,11 +7,11 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="{{ path('advert_index') }}">Toutes les annonces</a>
-            </li>
 
             {% if app.user %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('advert_index') }}">Toutes les annonces</a>
+                </li>
 
                 <li class="nav-item">
                     <a class="nav-link" href="{{ path('user_index') }}">Profil</a>
@@ -27,13 +27,13 @@
             {% endif %}
 
             {% if not app.user %}
-            <li class="nav-item">
-                <a class="nav-link" href="{{ path('app_register') }}">M'inscrire</a>
-            </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('app_register') }}">M'inscrire</a>
+                </li>
 
-            <li class="nav-item">
-                <a class="nav-link" href="{{ path('app_login') }}">Me Connecter</a>
-            </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('app_login') }}">Me Connecter</a>
+                </li>
             {% endif %}
 
         </ul>
