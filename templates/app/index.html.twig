@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Page d'accueil{% endblock %}
+
+{% block body %}
+
+    <div class="jumbotron">
+        <h1>Bienvenue sur La Bonne Voiture</h1>
+        <h2 class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h2>
+    </div>
+
+    <hr>
+
+    <h3>Les dernières ventes et locations :</h3>
+
+    <div class="row">
+
+        {% for advert in adverts %}
+            <div class="col-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>{{ advert.name }}</h4>
+                        <h5>Proposition de {{ advert.name }}</h5>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+{% endblock %}

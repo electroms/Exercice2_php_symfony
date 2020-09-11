@@ -1,0 +1,45 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="{{ path('app_index') }}">La Bonne Voiture</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('advert_index') }}">Toutes les annonces</a>
+            </li>
+
+            {% if app.user %}
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('user_index') }}">Profil</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('advert_new') }}">Ajouter une annonce</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('app_logout') }}">Me déconnecter</a>
+                </li>
+            {% endif %}
+
+            {% if not app.user %}
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('app_register') }}">M'inscrire</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('app_login') }}">Me Connecter</a>
+            </li>
+            {% endif %}
+
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Rechercher" aria-label="Search">
+            <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Go !</button>
+        </form>
+    </div>
+</nav>
