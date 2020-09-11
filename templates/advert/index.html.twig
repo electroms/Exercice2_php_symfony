@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Toutes les annonces{% endblock %}
+
+{% block body %}
+    <h1>Toutes les annonces</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Référence</th>
+                <th>Nom</th>
+                <th>Marque</th>
+                <th>Réserver</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for advert in adverts %}
+            <tr>
+                <td>{{ advert.id }}</td>
+                <td>{{ advert.name }}</td>
+                <td>{{ advert.brandId }}</td>
+                <td>
+                    <a href="{{ path('advert_show', {'id': advert.id}) }}">show</a>
+                    <a href="{{ path('advert_edit', {'id': advert.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">Aucun enregistrement trouvés</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('advert_new') }}">Créer nouveau</a>
+{% endblock %}
